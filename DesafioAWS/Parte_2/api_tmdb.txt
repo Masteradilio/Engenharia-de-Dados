@@ -1,0 +1,45 @@
+# Chave da API
+0c2f8962322392adf9b2022bd7985640
+
+
+# Token de Leitura da API
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzJmODk2MjMyMjM5MmFkZjliMjAyMmJkNzk4NTY0MCIsInN1YiI6IjY0OTFmY2EyYzNjODkxMDEyZDVmODI2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kfb2aURj9Q_xVUmri9kRLkCfAhehfbMHIVjRpPu4tX4
+
+
+# Nome do aplicativo
+api-movies-tmdb
+
+
+# Documentação
+https://developer.themoviedb.org/docs
+
+
+# Modelo de requisições
+https://api.themoviedb.org/3/{endpoint}?api_key={sua_chave_de_api}&{parâmetros_opcionais}
+
+
+# Modelo de código python
+
+import requests
+import pandas as pd
+from IPython.display import display
+
+
+api_key = "SUA CHAVE"
+url = f"https://api.themoviedb.org/3/movie/top_rated?api_key={api_key}&language=pt-BR"
+response = requests.get(url)
+data = response.json()
+
+
+filmes = []
+
+for movie in data['results']:
+	df = {'Titulo': movie['title'],
+	'Data de lançamento': movie['release_date'],
+	'Visão geral': movie['overview'],
+	'Votos': movie['vote_count'],
+	'Média de votos:': movie['vote_average']}
+
+filmes.append(df)
+df = pd.DataFrame(filmes)
+display(df)

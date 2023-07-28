@@ -1,0 +1,53 @@
+def lambda_handler(event, context):
+    import requests
+    import pandas as pd
+    import numpy
+    import json
+    import boto3
+
+    # Definindo a chave API
+    api_key = "minha chave API TMDB"
+
+    movie_ids = [120, 121, 122, 49051, 57158, 122917, 122917, 603, 604, 605, 624860, 218, 280, 296, 534, 87101, 290859, 105, 165, 196, 11, 1891, 1892, 1893, 1894, 1895, 140607, 181808, 181812, 9659, 8810, 9355, 76341, 348, 679, 8077, 8078, 70981, 126889]
+    franquias = pd.DataFrame()
+
+    movie_infos = [None] * len(movie_ids)
+
+    for i, movie_id in enumerate(movie_ids):
+        url_movie = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=pt-BR"
+        response_movie = requests.get(url_movie)
+        data_movie = response_movie.json()
+
+        movie_info = {'ID TMDB': data_movie['id'],
+                      'ID IMDB': data_movie['imdb_id'],
+                      'Título': data_movie['title'],
+                      'Data de lançamento': data_movie['release_date'],
+                      'Gêneros': [genre['name'] for genre in data_movie['genres']],
+                      'Duração (min)': data_movie['runtime'],
+                      'Popularidade': data_movie['popularity'],
+                      'Votos': data_movie['vote_count'],
+                      'Média de votos': data_movie['vote_average'],                  
+                      'Orçamento': data_movie['budget'],
+                      'Receita': data_movie['revenue'],
+                      'Produzido por': [name['name'] for name in data_movie["production_companies"]],             
+                      'Visão geral': data_movie['overview']}
+    
+        movie_infos[i] = movie_info
+
+    franquias = pd.DataFrame(movie_infos)
+
+    # Convertendo o DataFrame em uma string JSON
+    franquias_json = franquias.to_json(orient='records')
+
+    # Salvando os dados em um arquivo JSON no bucket S3
+    s3 = boto3.resource('s3')
+    bucket_name = "projeto-compass-filmes"
+    file_name = "Raw/TMDB/JSON/2023/06/26/franquias.json"
+    object = s3.Object(bucket_name, file_name)
+    object.put(Body=franquias_json)
+    
+    # Retornando uma resposta
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Execução concluída com sucesso!')
+    }
