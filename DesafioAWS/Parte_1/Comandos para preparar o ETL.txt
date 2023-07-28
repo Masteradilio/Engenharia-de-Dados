@@ -1,0 +1,35 @@
+Comandos realizados no terminal Windows para preparar o ambiente para o ETL
+
+# Montei a imagem ubuntu
+docker build -t ubuntu . 
+
+# Criei o conteiner projeto-filmes rodando o comando tail pra manter o conteiner rodando em primeiro plano (caso contrário ele encerra automaticamente)
+docker run -d --name projeto-filmes ubuntu tail -f /dev/null
+
+# Copiei o movies.csv da minha máquina local para o volume do conteiner
+docker cp "C:\Users\adili\iCloudDrive\Documents\Estágio\Sprint 7\Desafio Parte 1 - ETL\movies.csv" projeto-filmes:/home/data/movies.csv
+
+# Copiei o series.csv da minha máquina local para o volume do conteiner
+docker cp "C:\Users\adili\iCloudDrive\Documents\Estágio\Sprint 7\Desafio Parte 1 - ETL\series.csv" projeto-filmes:/home/data/series.csv
+
+# Copiei o script-etl.py da minha máquina local para o volume do conteiner
+docker cp "C:\Users\adili\iCloudDrive\Documents\Estágio\Sprint 7\Desafio Parte 1 - ETL\script-etl.py" projeto-filmes:/home/data/script-etl.py
+
+# executei o bash para entrar no linux do conteiner
+docker exec -it projeto-filmes /bin/bash
+
+# Verifiquei em que diretório estava
+pwd
+
+# Verifiquei que arquivos haviam lá
+ls
+
+# Mudei para o diretório onde estavam os arquivos carregados
+cd data
+
+# Executei o script python com o ETL para o bucket S3
+python3 /home/data/script-etl.py
+
+# Por fim veio a resposta de que deu tudo certo o carregamento
+s3.Object(bucket_name='projeto-compass-filmes', key='Raw/Local/CSV/Movies/2022/05/02/movies.csv')
+s3.Object(bucket_name='projeto-compass-filmes', key='Raw/Local/CSV/Series/2022/05/02/series.csv')
