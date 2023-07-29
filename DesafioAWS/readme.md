@@ -51,7 +51,7 @@ o maior lucro financeiro e a maior taxa de retorno, qual obteve prejuízo arreca
 qual o filme ou franquia mais popular, quais atores participaram de cada filme e em quantos participaram em toda a franquia, o marketshare da franquia em proporção comparada
 às demais e um mapa de calor mostrando quais classificações de gêneros o filme ou franquia se enquadravam.
 
-![Dashboard_Completo.pdf](https://github.com/Masteradilio/Engenharia-de-Dados/files/12206096/Dashboard_Completo.pdf)
+<img width="1021" alt="Dashboard_Completo" src="https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/40424e1b-dc8c-49fa-90c5-41545492eb30">
 
 
 O projeto encerrou com uma apresentação gravada em vídeo explicando todas as etapas do projeto e mostrando a execução do código para os avaliadores do programa de bolsa 
