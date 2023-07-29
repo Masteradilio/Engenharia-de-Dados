@@ -13,6 +13,7 @@ O arquivo trata-se de informações de filmes e atores e a classificação do IM
 Usamos um script python para subir o arquivo através de um contêiner linux em Docker com as devidas permissões do AWS S3.
 
 ![Ingestão Batch csv para bucket S3.png](Masteradilio/Engenharia-de-Dados/main/DesafioAWS/images/Desafio parte 1 - Ingestão Batch csv para bucket S3.png)
+!Ingestão Batch csv para bucket S3.png
 
 
 ### Etapa 2: Ingestão Streaming de arquivo do TMDB via API para a camada RAW do Data Lake
