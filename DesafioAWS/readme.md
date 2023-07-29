@@ -12,8 +12,7 @@ Na primeira parte, realizamos um upload de um arquivo local para um bucket S3 qu
 O arquivo trata-se de informações de filmes e atores e a classificação do IMDB e é demasiado grande, acima do limite permitido pelo Github. 
 Usamos um script python para subir o arquivo através de um contêiner linux em Docker com as devidas permissões do AWS S3.
 
-![Ingestão Batch csv para bucket S3.png](Masteradilio/Engenharia-de-Dados/main/DesafioAWS/images/Desafio parte 1 - Ingestão Batch csv para bucket S3.png)
-!(Ingestão Batch csv para bucket S3.png)
+![Ingestão Batch csv para bucket S3.png]([Masteradilio/Engenharia-de-Dados/main/DesafioAWS/images/Desafio parte 1 - Ingestão Batch csv para bucket S3.png](https://github.com/Masteradilio/Engenharia-de-Dados/blob/4a85ac7b1d20e6adc9ab77c4f70f933442d5732b/DesafioAWS/images/Desafio%20parte%201%20-%20Ingest%C3%A3o%20Batch%20csv%20para%20bucket%20S3.png))
 
 
 ### Etapa 2: Ingestão Streaming de arquivo do TMDB via API para a camada RAW do Data Lake
