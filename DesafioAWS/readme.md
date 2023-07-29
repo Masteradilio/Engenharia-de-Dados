@@ -40,8 +40,9 @@ Nessa fase do projeto, criamos databases no AWS Quicksight com os dados do model
 Nessa etapa verificamos alguns problemas e erros que nos fizeram retornar à etapa anterior e criar novas views no Athena com as tabelas dimensionais e a fato
 para adequar ainda mais os tipos de dados das colunas que não estavam sendo reconhecidos adequadamente pelo Quicksight e também estavam gerando erros.
 
-
+<div align="center">
 <img width="626" alt="Modelo Dimensional" src="https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/698a8026-f478-4084-ab5f-9e4dd8a838ff">
+</div>
 
 
 ### Etapa 5: Criação do Dashboard e apresentação aos stakeholders
