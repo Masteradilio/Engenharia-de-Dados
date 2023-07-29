@@ -21,7 +21,7 @@ Na segunda parte fizemos uma conexão via API para consumir os dados de filmes e
 salvar na camada RAW como arquivo JSON sem realizar nenhuma transformação, deixando o arquivo bruto, mas nessa etapa já selecionei os dados que queria
 trabalhar e subi apenas dados de filmes das franquias mais famosas de Fantasy e Sci-Fi, um total de 7 franquias dando 39 filmes.
 
-![Ingestão streaming TMDB para bucket S3.png](DesafioAWS/images/Desafio parte 2 - Ingestão streaming TMDB para bucket S3.png)
+![Desafio parte 2 - Ingestão streaming TMDB para bucket S3](https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/80245021-b83a-4165-b54a-f04e046665f4)
 
 
 ### Etapa 3: Transformação dos dados e salvamento na camada Trusted (TRT) do Data Lake
@@ -31,7 +31,7 @@ usando Jobs Spark do AWS Glue, salvando os arquivos em formato Parquet e criando
 mas ainda não finalizados para a análise. Após isso, usamos o AWS Athena e o Glue Catalog para criar a partir dos arquivos parquet a camada Refined (REF) com o
 modelo dimensional propício para ser consumido pelo AWS Quicksight e gerar o dashboard.
 
-![Transformação dos dados para a camada Trusted.png](DesafioAWS/images/Desafio parte 3 - Transformação dos dados para a camada Trusted.png)
+![Desafio parte 3 - Transformação dos dados para a camada Trusted](https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/7e685060-4bdc-4bd3-a492-d8f126b75182)
 
 
 ### Etapa 4: Criação de visualizações e análise de insights
@@ -40,7 +40,8 @@ Nessa fase do projeto, criamos databases no AWS Quicksight com os dados do model
 Nessa etapa verificamos alguns problemas e erros que nos fizeram retornar à etapa anterior e criar novas views no Athena com as tabelas dimensionais e a fato
 para adequar ainda mais os tipos de dados das colunas que não estavam sendo reconhecidos adequadamente pelo Quicksight e também estavam gerando erros.
 
-![Criação do modelo dimensional na camada Refined.png](DesafioAWS/images/Modelo Dimensional.png)
+
+<img width="626" alt="Modelo Dimensional" src="https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/698a8026-f478-4084-ab5f-9e4dd8a838ff">
 
 
 ### Etapa 5: Criação do Dashboard e apresentação aos stakeholders
@@ -50,7 +51,7 @@ o maior lucro financeiro e a maior taxa de retorno, qual obteve prejuízo arreca
 qual o filme ou franquia mais popular, quais atores participaram de cada filme e em quantos participaram em toda a franquia, o marketshare da franquia em proporção comparada
 às demais e um mapa de calor mostrando quais classificações de gêneros o filme ou franquia se enquadravam.
 
-![Dashboard_Completo.pdf](DesafioAWS/images/Dashboard_Completo.pdf)
+[Dashboard_Completo.pdf](https://github.com/Masteradilio/Engenharia-de-Dados/files/12206096/Dashboard_Completo.pdf)
 
 
 O projeto encerrou com uma apresentação gravada em vídeo explicando todas as etapas do projeto e mostrando a execução do código para os avaliadores do programa de bolsa 
