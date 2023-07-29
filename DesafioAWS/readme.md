@@ -24,7 +24,7 @@ trabalhar e subi apenas dados de filmes das franquias mais famosas de Fantasy e 
 ![Desafio parte 2 - Ingestão streaming TMDB para bucket S3](https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/80245021-b83a-4165-b54a-f04e046665f4)
 
 
-### Etapa 3: Transformação dos dados e salvamento na camada Trusted (TRT) do Data Lake
+### Etapa 3: Transformação dos dados e salvamento na camada Trusted (TRT) e Refined (REF) do Data Lake
 
 Na terceira parte começamos a fase de Transformação do processo de ETL e fizemos limpezas e criação de novas colunas e adequação de tipos de dados nos dados brutos
 usando Jobs Spark do AWS Glue, salvando os arquivos em formato Parquet e criando uma nova camada no Data Lake chamada Trusted, com dados mais propícios para uso, 
@@ -34,7 +34,7 @@ modelo dimensional propício para ser consumido pelo AWS Quicksight e gerar o da
 ![Desafio parte 3 - Transformação dos dados para a camada Trusted](https://github.com/Masteradilio/Engenharia-de-Dados/assets/122137421/7e685060-4bdc-4bd3-a492-d8f126b75182)
 
 
-### Etapa 4: Criação de visualizações e análise de insights
+### Etapa 4: Carregamento do modelo dimensional, criação de tabelas e análise inicial de insights
 
 Nessa fase do projeto, criamos databases no AWS Quicksight com os dados do modelo dimensional criado na etapa anterior para criar as análises do dashboard.
 Nessa etapa verificamos alguns problemas e erros que nos fizeram retornar à etapa anterior e criar novas views no Athena com as tabelas dimensionais e a fato
